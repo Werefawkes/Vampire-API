@@ -10,7 +10,7 @@ books.get('/', (req, res) => {
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
-			res.status(400).send('Bad Request')
+			res.status(400).send(err)
 		})
 })
 
@@ -22,7 +22,7 @@ books.get('/:id', (req, res) => {
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
-			res.status(404).send('Not Found')
+			res.status(404).send(err)
 		})
 })
 
@@ -36,7 +36,7 @@ books.put('/:id', (req, res) => {
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
-			res.status(400).send('Bad Request')
+			res.status(400).send(err)
 		})
 })
 
@@ -48,7 +48,7 @@ books.delete('/:id', (req, res) => {
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
-			res.status(400).send('Bad Request')
+			res.status(400).send(err)
 		})
 })
 
@@ -60,7 +60,7 @@ books.post('/', (req, res) => {
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
-			res.status(400).send('Bad Request')
+			res.status(400).send(err)
 		})
 })
 
