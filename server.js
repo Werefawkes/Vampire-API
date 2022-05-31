@@ -29,7 +29,7 @@ app.use('/books', booksController)
 
 // 404
 app.get('*', (req, res) => {
-	res.status(404).send('Error: 404')
+	res.status(404).send('Not Found')
 })
 
 
