@@ -28,7 +28,9 @@ books.get('/:id', (req, res) => {
 
 // update
 books.put('/:id', (req, res) => {
-	Book.findByIdAndUpdate(req.params.id, req.body)
+	Book.findByIdAndUpdate(req.params.id, req.body, {
+		new: true
+	})
 		.then(updatedBook => {
 			res.status(200).send(updatedBook)
 		})
