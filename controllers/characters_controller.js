@@ -1,12 +1,12 @@
 const express = require('express')
-const books = express.Router()
-const Book = require('../models/character.js')
+const characters = express.Router()
+const Character = require('../models/character.js')
 
 // index
-books.get('/', (req, res) => {
-	Book.find()
-		.then(foundBooks => {
-			res.status(200).send(foundBooks)
+characters.get('/', (req, res) => {
+	Character.find()
+		.then(foundChars => {
+			res.status(200).send(foundChars)
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
@@ -15,10 +15,10 @@ books.get('/', (req, res) => {
 })
 
 // show
-books.get('/:id', (req, res) => {
-	Book.findById(req.params.id)
-		.then(foundBook => {
-			res.status(200).send(foundBook)
+characters.get('/:id', (req, res) => {
+	Character.findById(req.params.id)
+		.then(foundChar => {
+			res.status(200).send(foundChar)
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
@@ -27,12 +27,12 @@ books.get('/:id', (req, res) => {
 })
 
 // update
-books.put('/:id', (req, res) => {
-	Book.findByIdAndUpdate(req.params.id, req.body, {
+characters.put('/:id', (req, res) => {
+	Character.findByIdAndUpdate(req.params.id, req.body, {
 		new: true
 	})
-		.then(updatedBook => {
-			res.status(200).send(updatedBook)
+		.then(updatedChar => {
+			res.status(200).send(updatedChar)
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
@@ -41,9 +41,9 @@ books.put('/:id', (req, res) => {
 })
 
 // delete
-books.delete('/:id', (req, res) => {
-	Book.findByIdAndDelete(req.params.id)
-		.then(deletedBook => {
+characters.delete('/:id', (req, res) => {
+	Character.findByIdAndDelete(req.params.id)
+		.then(deletedChar => {
 			res.status(200).send('Successfully deleted')
 		})
 		.catch(err => {
@@ -53,10 +53,10 @@ books.delete('/:id', (req, res) => {
 })
 
 // create
-books.post('/', (req, res) => {
-	Book.create(req.body)
-		.then(createdBook => {
-			res.status(201).send(createdBook)
+characters.post('/', (req, res) => {
+	Character.create(req.body)
+		.then(createdChar => {
+			res.status(201).send(createdChar)
 		})
 		.catch(err => {
 			console.log('ERROR: ', err)
@@ -64,4 +64,4 @@ books.post('/', (req, res) => {
 		})
 })
 
-module.exports = books
+module.exports = characters

@@ -2,11 +2,12 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const characterSchema = new Schema({
-	title: String,
-	description: String,
-	year: Number,
-	quantity: Number,
-	imageURL: String
+	firstName: String,
+	lastName: String,
+	apparentAge: Number,
+	trueAge: Number,
+	generation: String,
+	bio: String
 })
 
 // model
