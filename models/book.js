@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose, { model } from 'mongoose'
 const { Schema } = mongoose
 
 const bookSchema = new Schema({
@@ -10,5 +10,5 @@ const bookSchema = new Schema({
 })
 
 // model
-const Book = mongoose.model('Book', bookSchema)
-module.exports = Book
+const Book = model('Book', bookSchema)
+export default Book

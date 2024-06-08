@@ -1,9 +1,9 @@
-const express = require('express')
+import express, { json } from 'express'
 const app = express()
-const mongoose = require('mongoose')
-const cors = require('cors')
+import { connect } from 'mongoose'
+import cors from 'cors'
 
-app.use(express.json())
+app.use(json())
 
 // enable cors for all routes
 app.use(cors())
@@ -14,7 +14,7 @@ require('dotenv').config()
 const PORT = process.env.PORT
 
 // mongoose
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true},
+connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true},
 	() => { console.log('Connected to mongo: ', process.env.MONGODB_URI) }	
 )
 
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 })
 
 // controllers
-const booksController = require('./controllers/books_controller.js')
+import booksController from './controllers/books_controller.js'
 app.use('/books', booksController)
 
 // 404
