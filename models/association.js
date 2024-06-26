@@ -4,7 +4,7 @@ const { Schema } = mongoose
 
 const assocSchema = new Schema({
 	name: String,
-	members: [ Character ]
+	members: [Character]
 })
 
 // model

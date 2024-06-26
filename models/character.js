@@ -7,7 +7,8 @@ const characterSchema = new Schema({
 	apparentAge: Number,
 	trueAge: Number,
 	generation: String,
-	bio: String
+	bio: String,
+	creature: String
 })
 
 // model
