@@ -13,6 +13,10 @@ app.use(cors())
 require('dotenv').config()
 const PORT = process.env.PORT
 
+if (process.env.MONGODB_URI == undefined) {
+	throw console.error("ERROR: No MongoDB URI was set. Did you correctly set the environment variables?");
+}
+
 // mongoose
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true},
 	() => { console.log('Connected to mongo: ', process.env.MONGODB_URI) }	
